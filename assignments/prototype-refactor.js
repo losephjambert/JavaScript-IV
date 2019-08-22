@@ -37,9 +37,9 @@ Prototype Refactor
 
 class GameObject {
   constructor(attr) {
-    this.createdAt = attributes.createdAt;
-    this.name = attributes.name;
-    this.dimensions = attributes.dimensions;
+    this.createdAt = attr.createdAt;
+    this.name = attr.name;
+    this.dimensions = attr.dimensions;
   }
 
   destroy() {
@@ -72,7 +72,7 @@ class GameObject {
 class CharacterStats extends GameObject {
   constructor(attr) {
     super(attr);
-    this.healthPoints = attributes.healthPoints;
+    this.healthPoints = attr.healthPoints;
   }
 
   takeDamage(damage) {
@@ -101,23 +101,41 @@ class CharacterStats extends GameObject {
  * Instances of CharacterStats should have all of the same properties as GameObject.
  */
 
-function Humanoid(attributes) {
-  CharacterStats.call(this, attributes);
-  this.team = attributes.team;
-  this.weapons = attributes.weapons;
-  this.language = attributes.language;
-}
+// function Humanoid(attributes) {
+//   CharacterStats.call(this, attributes);
+// this.team = attributes.team;
+// this.weapons = attributes.weapons;
+// this.language = attributes.language;
+// }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
-Humanoid.prototype.attack = function(target, damage) {
-  return `
-  ${this.name} attacks ${target.name} for ${damage} damage!
-  ${target.takeDamage(damage)}
-  `;
-};
+// Humanoid.prototype = Object.create(CharacterStats.prototype);
+// Humanoid.prototype.greet = function() {
+//   return `${this.name} offers a greeting in ${this.language}.`;
+// };
+// Humanoid.prototype.attack = function(target, damage) {
+//   return `
+//   ${this.name} attacks ${target.name} for ${damage} damage!
+//   ${target.takeDamage(damage)}
+//   `;
+// };
+
+class Humanoid extends CharacterStats {
+  constructor(attr) {
+    super(attr);
+    this.team = attr.team;
+    this.weapons = attr.weapons;
+    this.language = attr.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+  attack(target, damage) {
+    return `
+    ${this.name} attacks ${target.name} for ${damage} damage!
+    ${target.takeDamage(damage)}
+    `;
+  }
+}
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
