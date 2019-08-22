@@ -54,20 +54,36 @@ class GameObject {
 * should inherit destroy() from GameObject's prototype
 */
 
-function CharacterStats(attributes) {
-  GameObject.call(this, attributes);
-  this.healthPoints = attributes.healthPoints;
-}
+// function CharacterStats(attributes) {
+//   GameObject.call(this, attributes);
+//   this.healthPoints = attributes.healthPoints;
+// }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
-CharacterStats.prototype.takeDamage = function(damage) {
-  this.healthPoints -= damage;
-  if (this.healthPoints <= 0) return this.destroy();
-  return `
-  ${this.name} took ${damage} damage.
-  ${this.name}'s health is now ${this.healthPoints}.
-  `;
-};
+// CharacterStats.prototype = Object.create(GameObject.prototype);
+// CharacterStats.prototype.takeDamage = function(damage) {
+//   this.healthPoints -= damage;
+//   if (this.healthPoints <= 0) return this.destroy();
+//   return `
+//   ${this.name} took ${damage} damage.
+//   ${this.name}'s health is now ${this.healthPoints}.
+//   `;
+// };
+
+class CharacterStats extends GameObject {
+  constructor(attr) {
+    super(attr);
+    this.healthPoints = attributes.healthPoints;
+  }
+
+  takeDamage(damage) {
+    this.healthPoints -= damage;
+    if (this.healthPoints <= 0) return this.destroy();
+    return `
+      ${this.name} took ${damage} damage.
+      ${this.name}'s health is now ${this.healthPoints}.
+    `;
+  }
+}
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
