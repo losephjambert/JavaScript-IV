@@ -26,14 +26,26 @@ Prototype Refactor
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
 
-function GameObject(attributes) {
-  this.createdAt = attributes.createdAt;
-  this.name = attributes.name;
-  this.dimensions = attributes.dimensions;
+// function GameObject(attributes) {
+//   this.createdAt = attributes.createdAt;
+//   this.name = attributes.name;
+//   this.dimensions = attributes.dimensions;
+// }
+// GameObject.prototype.destroy = function() {
+//   return `${this.name} was removed from the game.`;
+// };
+
+class GameObject {
+  constructor(attr) {
+    this.createdAt = attributes.createdAt;
+    this.name = attributes.name;
+    this.dimensions = attributes.dimensions;
+  }
+
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
 }
-GameObject.prototype.destroy = function() {
-  return `${this.name} was removed from the game.`;
-};
 
 /*
 === CharacterStats ===
