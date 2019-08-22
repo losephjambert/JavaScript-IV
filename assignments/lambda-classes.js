@@ -45,18 +45,9 @@ class Instructor extends Person {
   }
 
   grade(student, subject) {
-    console.log(`${student.name} receives a perfect score on ${subject}`);
+    return `${student.name} receives a perfect score on ${subject}`;
   }
 }
-
-// console.log(new Instructor({
-//   name: 'joe',
-//   age: 32,
-//   location: 'Seattle',
-//   specialty: 'functional programming',
-//   favLanguage: 'JavaScript',
-//   catchPhrase: `It's the sauce.`
-// }).grade({name: 'Ted'}, 'Classes'));
 
 // ========== Student ========== // - inherits from Person
 /*
@@ -70,6 +61,30 @@ class Instructor extends Person {
   - `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
   - `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 */
+
+class Student extends Person {
+  constructor(attr) {
+    super(attr);
+    this.previousBackground = attr.previousBackground;
+    this.className = attr.className;
+    this.favSubjects = attr.favSubjects;
+  }
+
+  listsSubjects() {
+    const { favSubjects } = this;
+    favSubjects.forEach(subject => {
+      return subject;
+    });
+  }
+
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+
+  sprintChallenge(subject) {
+    return `${this.name} has begun a sprint challenge for ${subject}`;
+  }
+}
 
 // ========== Project Manager ========== // - inherits from Instructor
 /*
