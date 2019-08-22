@@ -71,9 +71,10 @@ class Student extends Person {
   }
 
   listsSubjects() {
-    this.favSubjects.forEach(subject => {
-      return subject;
-    });
+    // this.favSubjects.forEach(subject => {
+    //   console.log(subject);
+    // });
+    return `${this.name}'s favorite subjects are ${this.favSubjects.join(', ')}`;
   }
 
   PRAssignment(subject) {
@@ -124,6 +125,7 @@ const webStudent1 = new Student({
   name: 'Joe',
   age: 32,
   location: 'Seattle',
+  previousBackground: 'Coffee',
   className: 'WEB23',
   favSubjects: ['JavaScript', 'CSS', 'React', 'Functional Programming'],
 });
@@ -132,6 +134,7 @@ const webStudent2 = new Student({
   name: 'Stella',
   age: 26,
   location: 'Atlanta',
+  previousBackground: 'Musician',
   className: 'WEB23',
   favSubjects: ['Node', 'HTML', 'Vue', 'APIs'],
 });
@@ -142,4 +145,42 @@ const webPM1 = new ProjectManager({
   location: 'San Antonio',
   gradClassName: 'WEB12',
   favInstructor: 'Britt',
+  specialty: 'Functional Programming',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Oh, hi Marc!',
 });
+
+// webFoundationsInstructor
+// webStudent1
+// webStudent2
+// webPM1
+
+// test instances
+console.log(webFoundationsInstructor);
+console.log(webStudent1);
+console.log(webStudent2);
+console.log(webPM1);
+
+// test methods
+//  - Instructor
+console.log(webFoundationsInstructor.speak());
+console.log(webFoundationsInstructor.demo('JavaScript'));
+console.log(webFoundationsInstructor.grade(webStudent2, 'JavaScript'));
+
+//  - Student
+console.log(webStudent1.speak());
+console.log(webStudent1.listsSubjects());
+console.log(webStudent1.PRAssignment('JavaScript-IV'));
+console.log(webStudent1.sprintChallenge('JavaScript'));
+
+console.log(webStudent2.speak());
+console.log(webStudent2.listsSubjects());
+console.log(webStudent2.PRAssignment('JavaScript-IV'));
+console.log(webStudent2.sprintChallenge('JavaScript'));
+
+//  - Project Manager
+console.log(webPM1.speak());
+console.log(webPM1.demo('React'));
+console.log(webPM1.grade(webStudent1, 'React'));
+console.log(webPM1.standUp('#web23_marc'));
+console.log(webPM1.debugsCode(webStudent1, 'flexbox'));
