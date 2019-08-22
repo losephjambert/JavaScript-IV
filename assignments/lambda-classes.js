@@ -71,7 +71,7 @@ class Student extends Person {
   }
 
   listsSubjects() {
-    const { favSubjects } = this;
+    const { favSubjects } = this; // remove this destructuring. not needed
     favSubjects.forEach(subject => {
       return subject;
     });
@@ -104,7 +104,11 @@ class ProjectManager extends Instructor {
     this.favInstructor = attr.favInstructor;
   }
 
-  standUp() {}
+  standUp(channel) {
+    return `${this.name} announces to ${channel}, "@channel standy times!​​​​​"`;
+  }
 
-  debugsCode() {}
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  }
 }
