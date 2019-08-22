@@ -120,6 +120,9 @@ const webFoundationsInstructor = new Instructor({
   name: 'Britt',
   age: 32,
   location: 'Toronto',
+  specialty: 'HTML && CSS',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'In the thread, please',
 });
 
 const webStudent1 = new Student({
