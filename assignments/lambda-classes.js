@@ -1,5 +1,5 @@
 // utilities
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min); // not inclusive of the max
 
 // CODE here for your Lambda Classes
 
@@ -52,9 +52,10 @@ class Instructor extends Person {
   }
 
   adjustGrade(student, range = [1, 10]) {
-    const decrement = getRandomNumber(0, 1);
+    const decrement = getRandomNumber(0, 2);
     const score = getRandomNumber(range[0], range[1]);
-    decrement ? (student.score -= score) : (student.score += score);
+    decrement ? (student.grade -= score) : (student.grade += score);
+    if (student.grade > 100) student.grade = 100;
     return `
       ${student.name}'s grade was ${decrement ? 'decremented' : 'incremented'} by ${score}.
       ${student.name}'s grade is now ${student.grade}.
@@ -185,6 +186,7 @@ console.log(webPM1);
 console.log(webFoundationsInstructor.speak());
 console.log(webFoundationsInstructor.demo('JavaScript'));
 console.log(webFoundationsInstructor.grade(webStudent2, 'JavaScript'));
+console.log(webFoundationsInstructor.adjustGrade(webStudent2, [4, 20]));
 
 //  - Student
 console.log(webStudent1.speak());
@@ -203,3 +205,4 @@ console.log(webPM1.demo('React'));
 console.log(webPM1.grade(webStudent1, 'React'));
 console.log(webPM1.standUp('#web23_marc'));
 console.log(webPM1.debugsCode(webStudent1, 'flexbox'));
+console.log(webPM1.adjustGrade(webStudent1, [5, 16]));
