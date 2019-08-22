@@ -111,3 +111,35 @@ class ProjectManager extends Instructor {
     return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
 }
+
+// ========== Tests ========== //
+
+const webFoundationsInstructor = new Instructor({
+  name: 'Britt',
+  age: 32,
+  location: 'Toronto',
+});
+
+const webStudent1 = new Student({
+  name: 'Joe',
+  age: 32,
+  location: 'Seattle',
+  className: 'WEB23',
+  favSubjects: ['JavaScript', 'CSS', 'React', 'Functional Programming'],
+});
+
+const webStudent2 = new Student({
+  name: 'Stella',
+  age: 26,
+  location: 'Atlanta',
+  className: 'WEB23',
+  favSubjects: ['Node', 'HTML', 'Vue', 'APIs'],
+});
+
+const webPM1 = new ProjectManager({
+  name: 'Marc',
+  age: 38,
+  location: 'San Antonio',
+  gradClassName: 'WEB12',
+  favInstructor: 'Britt',
+});
