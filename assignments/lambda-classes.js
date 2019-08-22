@@ -32,6 +32,32 @@ class Person {
   - `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
 */
 
+class Instructor extends Person {
+  constructor(attr) {
+    super(attr);
+    this.specialty = attr.specialty;
+    this.favLanguage = attr.favLanguage;
+    this.catchPhrase = attr.catchPhrase;
+  }
+
+  demo(subject) {
+    return `Today we are learning about ${subject}.`;
+  }
+
+  grade(student, subject) {
+    console.log(`${student.name} receives a perfect score on ${subject}`);
+  }
+}
+
+// console.log(new Instructor({
+//   name: 'joe',
+//   age: 32,
+//   location: 'Seattle',
+//   specialty: 'functional programming',
+//   favLanguage: 'JavaScript',
+//   catchPhrase: `It's the sauce.`
+// }).grade({name: 'Ted'}, 'Classes'));
+
 // ========== Student ========== // - inherits from Person
 /*
 - Student uses the same attributes that have been set up by Person
