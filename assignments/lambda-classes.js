@@ -1,3 +1,6 @@
+// utilities
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
+
 // CODE here for your Lambda Classes
 
 // ========== Person ========== // - base class
@@ -46,6 +49,16 @@ class Instructor extends Person {
 
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
+  }
+
+  adjustGrade(student, range = [1, 10]) {
+    const decrement = getRandomNumber(0, 1);
+    const score = getRandomNumber(range[0], range[1]);
+    decrement ? (student.score -= score) : (student.score += score);
+    return `
+      ${student.name}'s grade was ${decrement ? 'decremented' : 'incremented'} by ${score}.
+      ${student.name}'s grade is now ${student.grade}.
+    `;
   }
 }
 
