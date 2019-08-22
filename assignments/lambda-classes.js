@@ -59,6 +59,7 @@ class Instructor extends Person {
     return `
       ${student.name}'s grade was ${decrement ? 'decremented' : 'incremented'} by ${score}.
       ${student.name}'s grade is now ${student.grade}.
+      ${student.graduate()}
     `;
   }
 }
@@ -98,6 +99,10 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     return `${this.name} has begun a sprint challenge for ${subject}`;
+  }
+
+  graduate() {
+    return this.grade > 70 ? `Congratulations, ${this.name}! You've graduated from Lambda School!` : `Keep on practicing ${this.name}. You'll get there!`;
   }
 }
 
@@ -205,4 +210,4 @@ console.log(webPM1.demo('React'));
 console.log(webPM1.grade(webStudent1, 'React'));
 console.log(webPM1.standUp('#web23_marc'));
 console.log(webPM1.debugsCode(webStudent1, 'flexbox'));
-console.log(webPM1.adjustGrade(webStudent1, [5, 16]));
+console.log(webPM1.adjustGrade(webStudent1, [5, 20]));
