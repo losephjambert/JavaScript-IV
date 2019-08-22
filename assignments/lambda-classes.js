@@ -71,8 +71,7 @@ class Student extends Person {
   }
 
   listsSubjects() {
-    const { favSubjects } = this; // remove this destructuring. not needed
-    favSubjects.forEach(subject => {
+    this.favSubjects.forEach(subject => {
       return subject;
     });
   }
