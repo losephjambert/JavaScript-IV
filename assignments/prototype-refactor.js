@@ -35,18 +35,6 @@ GameObject.prototype.destroy = function() {
   return `${this.name} was removed from the game.`;
 };
 
-const test_GameObject = new GameObject({
-  createdAt: new Date(),
-  name: 'game_obj_1',
-  dimensions: {
-    length: 1,
-    width: 1,
-    height: 1,
-  },
-});
-
-console.log(test_GameObject);
-
 /*
 === CharacterStats ===
 * healthPoints
@@ -68,19 +56,6 @@ CharacterStats.prototype.takeDamage = function(damage) {
   ${this.name}'s health is now ${this.healthPoints}.
   `;
 };
-
-const test_Character = new CharacterStats({
-  healthPoints: 10,
-  createdAt: new Date(),
-  name: 'Ted',
-  dimensions: {
-    length: 3,
-    height: 6,
-    width: 2,
-  },
-});
-
-console.log(test_Character);
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
